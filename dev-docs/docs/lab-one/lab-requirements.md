@@ -31,7 +31,7 @@ Original Image | Mask
 
 Original Image | XORed
 :---: | :---:
-![Original](/assets/images-types/original.png) | ![XORed](/assets/images-types/xored.png)
+![Original](/assets/images-types/original.png) | ![XORed](/assets/images-types/xored-img.png)
 
 Original Image | SIFT
 :---: | :---:
