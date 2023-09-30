@@ -7,7 +7,6 @@ slug: /lab-one/hsv
 
 ## 📝 HSV Color Space
 
-<!-- insert image from /assets/hsvcone.gif -->
 ![hsvcone](/assets/hsv/hsvcone.gif)
 
 The HSV color space (hue, saturation, value) is often used by people who are selecting colors (e.g., of paints or inks) from a color wheel or palette, because it corresponds better to how people experience color than the RGB color space does.
