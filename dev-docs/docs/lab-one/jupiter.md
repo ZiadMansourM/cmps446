@@ -2,7 +2,7 @@
 sidebar_position: 2
 id: Jupiter Notebooks
 description: Load and mask image.
-slug: /lab-one/prepare-images
+slug: /lab-one/jupiter-notebooks
 ---
 
 ## 📝 Prepare Images
