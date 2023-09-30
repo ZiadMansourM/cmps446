@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkscanmate=self.webpackChunkscanmate||[]).push([[780],{6807:e=>{e.exports=JSON.parse('{"title":"Lab One","slug":"/category/lab-one","permalink":"/category/lab-one","navigation":{"previous":{"title":"Introduction","permalink":"/"},"next":{"title":"Introduction To Python","permalink":"/lab-one/python"}}}')}}]);
