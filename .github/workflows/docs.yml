@@ -6,6 +6,11 @@ on:
       - 'dev-docs/**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -25,18 +30,9 @@ jobs:
         npm install
         npm run build
 
-    - name: Copy build output
-      run: |
-        mkdir -p docs/
-        cp -r dev-docs/build/* docs/
-
-    - name: Configure Git user
-      run: |
-        git config user.name "ZiadMansourM"
-        git config user.email "ziadmansour.4.9.2000@gmail.com"
-
-    - name: Commit and push changes
-      run: |
-        git add docs/
-        git commit -m "Update built docs"
-        git push origin main
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: dev-docs/build
+        publish_branch: gh-pages
