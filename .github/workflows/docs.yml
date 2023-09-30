@@ -27,6 +27,7 @@ jobs:
 
     - name: Copy build output
       run: |
+        mkdir -p docs/
         cp -r dev-docs/build/* docs/
 
     - name: Configure Git user
