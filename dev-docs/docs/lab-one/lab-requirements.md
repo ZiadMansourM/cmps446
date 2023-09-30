@@ -1,39 +1,167 @@
 ---
 sidebar_position: 4
 id: Lab Requirements
-description: Match similar images.
+description: Explanation of lab requirements.
 slug: /lab-one/lab-requirements
 ---
 
-## 📝 Image Matching/Stitching
-- [X] Match similar images together into a cluster.
-- [X] Images in a cluster has to see the very same points.
-```py
-@timeit
-def image_matching(images_obj: Images, overwrite:bool =False, **kwargs) -> None:
-    def load_image(image_path, target_size=(224, 224)):
-        img = keras_image.load_img(image_path, target_size=target_size)
-        img = keras_image.img_to_array(img)
-        img = np.expand_dims(img, axis=0)
-        img = preprocess_input(img)
-        return img
+## 📝 Lab Requirements
+- [ ] HSV.
+- [ ] Histograms.
+- [ ] Noise.
 
-    image_set_name = kwargs['image_set_name']
-    image_dir = f'../data/{image_set_name}/images'
-    image_files = os.listdir(image_dir)
-    images = [load_image(os.path.join(image_dir, f)) for f in image_files]
-    images = np.vstack(images)
+## Prerequisites
 
-    ssl_context = ssl.create_default_context(cafile=certifi.where())
-    ssl._create_default_https_context = ssl._create_unverified_context
-    model = ResNet50(weights='imagenet', include_top=False, pooling='avg')
-    features = model.predict(images)
+### Images Types
 
-    kmeans = KMeans(n_clusters=images_obj.num_clusters, random_state=42)
-    clusters = kmeans.fit_predict(features)
+True Color | Gray Scale | Binary
+:---: | :---: | :---: |
+![Original](/assets/images-types/original.png) | ![Gray](/assets/images-types/gray.png) | ![Mask](/assets/images-types/mask.png)
 
-    for i, cluster in enumerate(clusters):
-        if cluster not in images_obj.similar_images:
-            images_obj.similar_images[cluster] = []
-        images_obj.similar_images[cluster].append(images_obj[int(image_files[i].split(".")[0])])
+<hr/>
+
+Original Image | Gray
+:---: | :---:
+![Original](/assets/images-types/original.png) | ![Gray](/assets/images-types/gray.png)
+
+
+Original Image | Mask
+:---: | :---:
+![Original](/assets/images-types/original.png) | ![Mask](/assets/images-types/mask.png)
+
+Original Image | XORed
+:---: | :---:
+![Original](/assets/images-types/original.png) | ![XORed](/assets/images-types/xored.png)
+
+Original Image | SIFT
+:---: | :---:
+![Original](/assets/images-types/sift_without_mask.png) | ![SIFT](/assets/images-types/sift.png)
+
+### NumPy Arrays
+Numpy is a great mathematical library that deals with array. To construct array of zeros [5,5,5] all of unit8 (range from 0 to 255):
+```python
+(.venv) ziadh@Ziads-MacBook-Air cmps446 % python3 
+Python 3.11.5 (v3.11.5:cce6ba91b3, Aug 24 2023, 10:50:31) [Clang 13.0.0 (clang-1300.0.29.30)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> array: np.ndarray = np.zeros(shape=(3, 5, 5), dtype=np.uint8)
+>>> array
+array([[[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]],
+
+       [[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]],
+
+       [[0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0]]], dtype=uint8)
+>>> array[:,1:4,1:4] = 20
+>>> array[:,:,:]
+array([[[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]]], dtype=uint8)
+>>> copied_array: np.ndarray = np.copy(array)
+>>> copied_array
+array([[[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]]], dtype=uint8)
+>>> copied_array[:,1:3,1:3] = 70
+>>> copied_array
+array([[[ 0,  0,  0,  0,  0],
+        [ 0, 70, 70, 20,  0],
+        [ 0, 70, 70, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 70, 70, 20,  0],
+        [ 0, 70, 70, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 70, 70, 20,  0],
+        [ 0, 70, 70, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]]], dtype=uint8)
+>>> array[:,:,:]
+array([[[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]],
+
+       [[ 0,  0,  0,  0,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0, 20, 20, 20,  0],
+        [ 0,  0,  0,  0,  0]]], dtype=uint8)
+>>> copied_array[:,1:3,1:3] = 255
+>>> copied_array[:,1:3,1:3] = 256
+<stdin>:1: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 256 to uint8 will fail in the future.
+For the old behavior, usually:
+    np.array(value).astype(dtype)
+will give the desired result (the cast overflows).
+>>> copied_array[:,1:3,1:3] = 700
+<stdin>:1: DeprecationWarning: NumPy will stop allowing conversion of out-of-bound Python integers to integer arrays.  The conversion of 700 to uint8 will fail in the future.
+For the old behavior, usually:
+    np.array(value).astype(dtype)
+will give the desired result (the cast overflows).
+>>> 
 ```
+
+### Reading and Showing Images
+```python
+import skimage.io as io
+
+img = io.imread(‘image.png’)
+io.show()
+```
+
+## REFERENCES
+- [Filters References](https://scikit-image.org/docs/dev/api/skimage.filters.html)
+- [ImNoise](http://scikit-image.org/docs/dev/api/skimage.util.html)
+- [Features (including Canny)](http://scikit-image.org/docs/dev/api/skimage.feature.html)
+- [Equalize_hist](http://scikit-image.org/docs/dev/api/skimage.exposure.html#skimage.exposure.equalize_hist)

@@ -5,9 +5,22 @@ description: Deep dive into HSV Color Model.
 slug: /lab-one/hsv
 ---
 
-## 📝 HSV Color Space
+## Pixels
 
-![hsvcone](/assets/hsv/hsvcone.gif)
+<div style={{ display: 'flex', justifyContent: 'center' }}>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/zzF1O9rKcvY"
+    frameborder="0"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+  ></iframe>
+</div>
+
+## HSV Color Space
+
+![hsvcone](/assets/hsv/hsv.png)
 
 The HSV color space (hue, saturation, value) is often used by people who are selecting colors (e.g., of paints or inks) from a color wheel or palette, because it corresponds better to how people experience color than the RGB color space does.
 
@@ -24,9 +37,10 @@ Color value refers to the relative lightness or darkness of a color. We perceive
 To better understand the HSV color space, we will use the following image:
 
 ```Matlab
-% This is MATLAB code
+% This is matlab code
 first=1024;
 second=first*3;
+
 RGB=reshape(ones(first,1)*reshape(jet(first),1,second),[first,first,3]);
 HSV=rgb2hsv(RGB);
 H=HSV(:,:,1);
@@ -36,14 +50,24 @@ imshow(H)
 figure, imshow(S);
 figure, imshow(V);
 figure, imshow(RGB);
+R=RGB(:,:,1);
+G=RGB(:,:,2);
+B=RGB(:,:,3);
+figure, imshow(R);
+figure, imshow(G);
+figure, imshow(B);
 ```
 
 Orginal Image | Hue Plain | Saturation Plain | Value Plain
 :--:|:--:|:--:|:--:
 ![original](/assets/hsv/rainbow.png) | ![hue](/assets/hsv/hue.png) | ![saturation](/assets/hsv/saturation.png) | ![value](/assets/hsv/value.png)
 
+Orginal Image | Red Plain | Green Plain | Blue Plain
+:--:|:--:|:--:|:--:
+![original](/assets/hsv/rainbow.png) | ![red](/assets/hsv/r.png) | ![green](/assets/hsv/g.png) | ![blue](/assets/hsv/b.png)
 
-### Explanation
+
+### Explanation HSV Space
 
 Orginal Image | Hue Plain
 :--:|:--:
@@ -67,6 +91,24 @@ Orginal Image | Value Plain
 ![original](/assets/hsv/rainbow.png) | ![value](/assets/hsv/value.png)
 
 Value is roughly equivalent to brightness, and you will notice that the brightest areas of the value plane correspond to the brightest colors in the original image.
+
+### Explanation RGB Space
+
+Orginal Image | Red Plain
+:--:|:--:
+![original](/assets/hsv/rainbow.png) | ![red](/assets/hsv/r.png)
+
+<hr/>
+
+Orginal Image | Green Plain
+:--:|:--:
+![original](/assets/hsv/rainbow.png) | ![green](/assets/hsv/g.png)
+
+<hr/>
+
+Orginal Image | Blue Plain
+:--:|:--:
+![original](/assets/hsv/rainbow.png) | ![blue](/assets/hsv/b.png)
 
 ## REFERENCES
 - [How to Use HSV Color Model in Photography - Master Class](https://en.wikipedia.org/wiki/HSL_and_HSV)

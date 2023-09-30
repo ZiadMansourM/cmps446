@@ -5,6 +5,35 @@ description: 🚁 Helicopter view of Our Graduation Project.
 slug: /
 ---
 
+## Image Processing is Different
+First, we would like to welcome you to CMPS446 `Image Processing and Computer Vision` course. We hope that you will enjoy the course and adds to your knowledge and experience.
+
+Please, make your priority to `understand`, `discuss` and to ask freely ... remember grades are not the goal, but the knowledge and experience you gain is.
+
+
+## Course System
+- Official Site: [elearn.eng.cu.edu.eg](http://www.elearn.eng.cu.edu.eg/)
+- Enroll yourself in the corresponding group "Credit/Mainstream".
+- Quiz during the first 5 minutes of each tutorial.
+
+## Tools
+- [Python](https://www.python.org/).
+- Packages: "NumPy, SciPy, Matplotlib, OpenCV, ...".
+- IDE: "Anaconda, Jupiter Notebooks, VSCode, ...".
+- Keep outputs and variables in memory till discussions.
+
+## Course Overview
+- Introduction to computer vision.
+- Image and Camera Fundamentals.
+- Basic concepts of DIP (Fourier Transform & Convolution).
+- Image preprocessing techniques "e.g. Contrast enhancement".
+- Morphological image processing techniques.
+- Image segmentation techniques.
+- Image Feature Extraction "e.g. Edge detection, SIFT, Textures, Corner Detection, ...".
+- Pattern Recognition and Classification.
+- Computer Vision Applications.
+
+
 export const CenterContainer = ({ children }) => (
   <div style={{ textAlign: 'center' }}>
     {children}
