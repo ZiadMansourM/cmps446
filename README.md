@@ -1,7 +1,16 @@
 # 👋 Welcome to CMPS446 at CUFE
 Unofficial repository of CMPS446 Image Processing and Computer Vision at Faculty of Engineering Cairo University.
 
-# 🔧 Contribution Guidelines
+# 🔧 Technologies Used
+- [X] Python.
+```console
+ziadh@Ziads-MacBook-Air cmps446 % python3 --version
+Python 3.11.5
+```
+- [X] Docusaurus - [link](https://docusaurus.io/).
+
+
+# 📝 Contribution Guidelines
 
 Thank you for considering contributing to our project! We appreciate your interest in helping us make this project better.
 
