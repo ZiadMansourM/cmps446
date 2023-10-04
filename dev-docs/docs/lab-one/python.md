@@ -8,7 +8,260 @@ slug: /lab-one/python
 ## Disclaimer
 This is not an exotic list of important nor basic python features, it is your own responsibility and  you can always access internet during labs.
 
-## Python Functions
+## Style Guide
+- [PEP 8 – Style Guide for Python Code](https://peps.python.org/pep-0008/).
+- [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html).
+
+## Types in Python
+Python type system is unlike other languages you might have encountered, everything in python is an object. That object carries:
+    - Type
+    - Reference count
+    - Value
+Read more about garbage collection in python and basics of Memory Management in Python [here](https://youtu.be/URNdRl97q_0?si=u3aoWj2yePDiIXII).
+
+### Type hinting
+Python is a dynamically typed language, which means that you don't have to declare the type of the variable when you create one. The interpreter infers the type of the variable based on the value it is assigned. This is unlike statically typed languages like C, C++, Java, etc. where you have to declare the type of the variable when you create one.
+
+Type hinting is a way for developers to add metadata to a codebase to make it easier to perform static analysis during development. Some have speculated that Python type hinting could in time give rise to a fork of the language that is statically typed, perhaps as a way to make Python faster. Plus, it hugely improves the readability of your code.
+
+### Variables and Constants
+
+```python
+from typing import Final
+
+COURSE_NAME: Final[str] = "CMPS446"
+var_one: int = 3
+var_two: bool = True
+var_three: str = "Hello World"
+print(var_one, var_two, var_three)
+var_four: str = "your favv TA"
+print(f"{COURSE_NAME}: {var_three}, by {var_four} :)")
+```
+
+```Console
+3 True Hello World
+CMPS446: Hello World, by your favv TA :)
+```
+
+<hr/>
+
+```python
+from typing import Optional
+x: Optional[int] = None
+print('x is None' if x is None else 'x is not None')
+```
+
+```console
+x is None
+```
+
+## Printing in Python
+
+### Printing to file
+Consider running `Python Basic Syntax.ipynb` inside the following code structure:
+```
+(.venv) ziadh@Ziads-MacBook-Air lab-one-sol % tree  
+.
+├── Lab_one_std.ipynb
+├── Lab_one_ta.ipynb
+├── Python Basic Syntax.ipynb
+├── README.md
+├── data
+│   ├── coffee.jpeg
+│   ├── histogram
+│   │   ├── ex1.jpg
+│   │   ├── ex2.png
+│   │   └── ex3.png
+│   ├── hsv
+│   │   ├── ex1.png
+│   │   ├── ex2.jpg
+│   │   └── ex3.jpg
+│   └── pyramids.jpeg
+├── lab-one-std.zip
+├── materials
+│   ├── Image Processing - Lab - Intro to Python and Jupyter.pdf
+│   ├── Lab1-HSV-Noise-Histogram.pptx
+│   ├── Lab1-Intro to Image Processing in Python.pptx
+│   └── Lab1.pdf
+├── output
+│   └── output.log
+└── requirements.txt
+
+5 directories, 19 files
+```
+
+```python
+"""Printing to file in Python
+Example logging to a file
+"""
+import os
+from pathlib import Path
+
+BASE_PATH: Final[Path] = Path().resolve()
+log_file_path: Final[Path] = os.path.join(BASE_PATH, "output", "output.log")
+
+def log_to_file(file_path: Path, message: str) -> None:
+    with open(file_path, "w") as f:
+        import datetime
+        timestamp: datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_message: str = f"[{timestamp}] {message}"
+        print(log_message, file=f)
+
+log_to_file(log_file_path, "Hello World!")
+```
+
+```output.log
+[2023-10-04 01:39:18] Hello World!
+```
+
+## Operators in Python
+
+### Division
+```python
+# division in python
+print(5/2)
+
+# floor division or integer division
+print(5 // 2)
+```
+
+```console
+2.5
+2
+```
+
+## Looping in Python
+```python
+array: list[int] = [1, 2, 3, 4, 5]
+```
+
+<hr/>
+
+```python
+for num in array:
+    print(num)
+```
+
+```console
+1
+2
+3
+4
+5
+```
+
+<hr/>
+
+```python
+for i in range(5):
+    print(i)
+```
+
+```console
+0
+1
+2
+3
+4
+```
+
+<hr/>
+
+```python
+# range(start, stop, step)
+for i in range(0, 1_000_000, 10_000):
+    print(f"{i:,}")
+```
+
+```console
+0
+10,000
+20,000
+30,000
+...
+970,000
+980,000
+990,000
+```
+
+<hr/>
+
+```python
+for num in array:
+    if num%2 == 0:
+        print(num)
+
+# Usage of list comprehension
+even_items: list[int] = [num for num in array if num%2 == 0]
+print(even_items)
+print(*even_items)
+print(*even_items, sep=', ')
+```
+
+```console
+2
+4
+[2, 4]
+2 4
+2, 4
+```
+
+## Functions in python
+
+### Inline functions
+```python
+from typing import Callable
+
+add: Callable[[int, int], int] = lambda x, y: x + y
+result: int = add(3, 5)
+print(result)
+```
+
+```console
+8
+```
+
+## Decorators in Python
+A decorator is a function that takes another function and extends the behavior of the latter function without explicitly modifying it.
+
+```python
+import time
+from typing import Callable
+from pathlib import Path
+
+BASE_PATH: Final[Path] = Path().resolve()
+log_file_path: Final[str] = os.path.join(BASE_PATH, "output", "tune.log")
+
+def log_to_file(file_path: str, message: str) -> None:
+    with open(file_path, "w") as f:
+        import datetime
+        timestamp: datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_message: str = f"[{timestamp}] {message}"
+        print(log_message, file=f)
+
+def timeit(func: Callable) -> Callable:
+    def wrapper(*args, **kwargs):
+        log_to_file(log_file_path, f"Started {func.__name__}...")
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        log_to_file(log_file_path, f"Done {func.__name__} took {end_time - start_time:,} seconds to execute.")
+        return result
+    return wrapper
+
+@timeit
+def add(a: int, b: int) -> int:
+    time.sleep(10)
+    return a + b
+
+add(1, 2)
+```
+
+```console
+[2023-10-04 03:12:59] Done add took 10.0048 seconds to execute.
+```
+
+## Passing arguments to Functions
 Formal parameters are mentioned in the function definition. Actual parameters(arguments) are passed during a function call. We can define a function with a variable number of arguments.
 
 ### default arguments
@@ -148,6 +401,103 @@ print(add(3, 4, 1, d=2))
 - Use `keyword-only` when names have meaning and the function definition is more understandable by being explicit with names.
 - Use `keyword-only` when you want to prevent users from relying on the position of the argument being passed.
 
+## Numpy
+
+### Generating NumPy arrays
+```python
+import numpy as np
+```
+
+```python
+zeros_array: np.ndarray[int] = np.zeros(shape=(6, 5), dtype=int)
+ones_array: np.ndarray[int] = np.ones(shape=(6, 5), dtype=int)
+
+print(zeros_array)
+print(ones_array)
+print(ones_array.shape)
+print(ones_array.shape[0])
+```
+
+```console
+[[0 0 0 0 0]
+ [0 0 0 0 0]
+ [0 0 0 0 0]
+ [0 0 0 0 0]
+ [0 0 0 0 0]
+ [0 0 0 0 0]]
+[[1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]
+ [1 1 1 1 1]]
+(6, 5)
+6
+```
+
+### Array Indexing
+```python
+array: list[int] = [0, 1, 2, 3, 4, 5]
+print(array[:3])
+
+second_array: np.ndarray[int] = np.array(array)
+third_array: np.ndarray[int] = np.copy(second_array)
+
+print(third_array)
+third_array[:3] = 0
+print(third_array)
+
+third_array: np.ndarray[int] = np.copy(second_array)
+third_array[third_array%2==0] = -1
+print(third_array)
+
+third_array: np.ndarray[int] = np.copy(second_array)
+third_array[(third_array%2==0) & (third_array==2)] = -1
+print(third_array)
+```
+
+```console
+[0, 1, 2]
+[0 1 2 3 4 5]
+[0 0 0 3 4 5]
+[-1  1 -1  3 -1  5]
+[ 0  1 -1  3  4  5]
+```
+
+<hr/>
+
+```python
+original_matrix: np.ndarray[list[int]] = np.array([
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5],
+    [1, 2, 3, 4, 5]
+])
+
+copied_matrix: np.ndarray[list[int]] = np.copy(original_matrix)
+print(copied_matrix)
+
+copied_matrix[1:3, 1:3] = 0
+print(copied_matrix)
+```
+
+```console
+[[1 2 3 4 5]
+ [1 2 3 4 5]
+ [1 2 3 4 5]]
+[[1 2 3 4 5]
+ [1 0 0 4 5]
+ [1 0 0 4 5]]
+```
+
+## Extra Useful Talks
+Always keep yourself updated with each new python release changes.
+- [Sebastian Witowski - Writing faster Python](https://youtu.be/YjHsOrOOSuI?si=mEhQO4nUWcYty4yi)
+- [Memory Management in Python - The Basics](https://youtu.be/URNdRl97q_0?si=y509rZJ3myM65dMB)
+- [PyCon 2015 - Python's Infamous GIL by Larry Hastings](https://youtu.be/KVKufdTphKs?si=26ylGTmYtPIlXBFN)
+- [What are metaclasses in Python?](https://stackoverflow.com/questions/100003/what-are-metaclasses-in-python)
+- [Scaling Instagram Infrastructure](https://www.youtube.com/watch?v=hnpzNAPiC0E)
+- [Software Design in Python](https://youtube.com/playlist?list=PLC0nd42SBTaNuP4iB4L6SJlMaHE71FG6N&si=w1dURsMpT8tWhX0N)
+- [State of the Art Python Features](https://youtube.com/playlist?list=PLC0nd42SBTaMpVAAHCAifm5gN2zLk2MBo&si=RWDSKyzrabProhud)
 
 ## REFERENCES
 - [5 Types of Arguments in Python Function Definitions](https://medium.com/gitconnected/5-types-of-arguments-in-python-function-definition-e0e2a2cafd29)

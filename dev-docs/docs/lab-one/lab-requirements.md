@@ -160,6 +160,29 @@ img = io.imread(‘image.png’)
 io.show()
 ```
 
+### Normalize unit8 images
+```python
+import numpy as np
+
+# Create a sample uint8 image
+uint8_image = np.array([
+    [100, 200, 50],
+    [25, 150, 75],
+    [0, 255, 30]
+], dtype=np.uint8)
+
+# Normalize the uint8 image to the range [0, 1]
+normalized_image = uint8_image / uint8_image.max()
+
+print(normalized_image)
+```
+
+```console
+[[0.39215686 0.78431373 0.19607843]
+ [0.09803922 0.58823529 0.29411765]
+ [0.         1.         0.11764706]]
+```
+
 ## REFERENCES
 - [Filters References](https://scikit-image.org/docs/dev/api/skimage.filters.html)
 - [ImNoise](http://scikit-image.org/docs/dev/api/skimage.util.html)
