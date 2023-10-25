@@ -782,6 +782,30 @@ model.fit(x_train, y_train, epochs=EPOCHS)
 ```
 
 ```python
+model.summary()
+```
+
+```
+Model: "sequential"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ flatten (Flatten)           (None, 784)               0         
+                                                                 
+ dense (Dense)               (None, 128)               100480    
+                                                                 
+ dense_1 (Dense)             (None, 128)               16512     
+                                                                 
+ dense_2 (Dense)             (None, 10)                1290      
+                                                                 
+=================================================================
+Total params: 118282 (462.04 KB)
+Trainable params: 118282 (462.04 KB)
+Non-trainable params: 0 (0.00 Byte)
+_________________________________________________________________
+```
+
+```python
 val_loss, val_acc = model.evaluate(x_test, y_test)
 utils.log_to_file(f"Loss: {val_loss:.4f}, Accuracy: {val_acc*100:.2f}%")
 ```
