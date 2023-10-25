@@ -850,7 +850,7 @@ plt.show()
 utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}'")
 ```
 
-## Custom Test
+## Extra Custom Test
 
 ### Custom Datasets
 
@@ -865,6 +865,18 @@ utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}
 
 ### Confusion Matrix
 ![confusion-matrix](/assets/datasets/minst/custom-test/mnist-test-4-97.13.png)
+
+### Wrong Predictions
+
+2 predected 3 | 4 predected 7 | 6 predected 5 
+:--: | :--: | :--:
+![two](/assets/datasets/minst/custom-test/2.png) | ![four](/assets/datasets/minst/custom-test/4.png) | ![six](/assets/datasets/minst/custom-test/6.png)
+
+
+| 7 predected 1 | 8 predected 3 | 9 predected 3
+:--: | :--: | :--:
+![seven](/assets/datasets/minst/custom-test/7.png) | ![eight](/assets/datasets/minst/custom-test/8.png) | ![nine](/assets/datasets/minst/custom-test/9.png)
+
 
 
 ## Logs
