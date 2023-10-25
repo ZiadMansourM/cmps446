@@ -5,47 +5,8 @@ description: NN for Handwritten digit recognition.
 slug: /image-classification/glassy
 ---
 
-export const ImagesTable = ({ first, second, third, fourth, heading, size }) => (
-  <div style={{ display: 'inline-block' }}>
-    <table>
-      <tbody>
-        <tr>
-          <td colSpan={8} style={{ textAlign: 'center' }}>
-            {heading}
-          </td>
-        </tr>
-        <tr>
-          {first.map((imageSrc, index) => (
-            <td key={index}>
-              <img src={`/assets/datasets/minst/${imageSrc}`} width={size} height={size} />
-            </td>
-          ))}
-        </tr>
-        <tr>
-          {second.map((imageSrc, index) => (
-            <td key={index}>
-              <img src={`/assets/datasets/minst/${imageSrc}`} width={size} height={size} />
-            </td>
-          ))}
-        </tr>
-        <tr>
-          {third.map((imageSrc, index) => (
-            <td key={index}>
-              <img src={`/assets/datasets/minst/${imageSrc}`} width={size} height={size} />
-            </td>
-          ))}
-        </tr>
-        <tr>
-          {fourth.map((imageSrc, index) => (
-            <td key={index}>
-              <img src={`/assets/datasets/minst/${imageSrc}`} width={size} height={size} />
-            </td>
-          ))}
-        </tr>
-      </tbody>
-    </table>
-  </div>
-);
+import ImagesTable from "../../src/components/ImagesTable";
+import CustomImagesTable from "../../src/components/CustomImagesTable";
 
 
 ## MNIST digits dataset
@@ -131,475 +92,76 @@ done
 "9":     5949
 ```
 
-### Zeros
-
+### Ones
 <ImagesTable
   size={112}
-  heading={"Zeros Images"}
-  first={[
-    "train/0/0-0000.png",
-    "train/0/0-0001.png",
-    "train/0/0-0002.png",
-    "train/0/0-0003.png",
-    "train/0/0-0004.png",
-    "train/0/0-0005.png",
-    "train/0/0-0006.png",
-    "train/0/0-0007.png",
-  ]}
-  second={[
-    "train/0/0-0008.png",
-    "train/0/0-0009.png",
-    "train/0/0-0010.png",
-    "train/0/0-0011.png",
-    "train/0/0-0012.png",
-    "train/0/0-0013.png",
-    "train/0/0-0014.png",
-    "train/0/0-0015.png",
-  ]}
-  third={[
-    "train/0/0-0016.png",
-    "train/0/0-0017.png",
-    "train/0/0-0018.png",
-    "train/0/0-0019.png",
-    "train/0/0-0020.png",
-    "train/0/0-0021.png",
-    "train/0/0-0022.png",
-    "train/0/0-0023.png",
-  ]}
-  fourth={[
-    "train/0/0-0024.png",
-    "train/0/0-0025.png",
-    "train/0/0-0026.png",
-    "train/0/0-0027.png",
-    "train/0/0-0028.png",
-    "train/0/0-0029.png",
-    "train/0/0-0030.png",
-    "train/0/0-0031.png",
-  ]}
-/>
-
-### Ones
-
-<ImagesTable
-    size={112}
-    heading={"Ones Images"}
-    first={[
-        "train/1/1-0000.png",
-        "train/1/1-0001.png",
-        "train/1/1-0002.png",
-        "train/1/1-0003.png",
-        "train/1/1-0004.png",
-        "train/1/1-0005.png",
-        "train/1/1-0006.png",
-        "train/1/1-0007.png",
-    ]}
-    second={[
-        "train/1/1-0008.png",
-        "train/1/1-0009.png",
-        "train/1/1-0010.png",
-        "train/1/1-0011.png",
-        "train/1/1-0012.png",
-        "train/1/1-0013.png",
-        "train/1/1-0014.png",
-        "train/1/1-0015.png",
-    ]}
-    third={[
-        "train/1/1-0016.png",
-        "train/1/1-0017.png",
-        "train/1/1-0018.png",
-        "train/1/1-0019.png",
-        "train/1/1-0020.png",
-        "train/1/1-0021.png",
-        "train/1/1-0022.png",
-        "train/1/1-0023.png",
-    ]}
-    fourth={[
-        "train/1/1-0024.png",
-        "train/1/1-0025.png",
-        "train/1/1-0026.png",
-        "train/1/1-0027.png",
-        "train/1/1-0028.png",
-        "train/1/1-0029.png",
-        "train/1/1-0030.png",
-        "train/1/1-0031.png",
-    ]}
+  heading={"Ones Images"}
+  dirname={"train"}
+  classdigit={"1"}
 />
 
 ### Twos
-
 <ImagesTable
-    size={112}
-    heading={"Twos Images"}
-    first={[
-        "train/2/2-0000.png",
-        "train/2/2-0001.png",
-        "train/2/2-0002.png",
-        "train/2/2-0003.png",
-        "train/2/2-0004.png",
-        "train/2/2-0005.png",
-        "train/2/2-0006.png",
-        "train/2/2-0007.png",
-    ]}
-    second={[
-        "train/2/2-0008.png",
-        "train/2/2-0009.png",
-        "train/2/2-0010.png",
-        "train/2/2-0011.png",
-        "train/2/2-0012.png",
-        "train/2/2-0013.png",
-        "train/2/2-0014.png",
-        "train/2/2-0015.png",
-    ]}
-    third={[
-        "train/2/2-0016.png",
-        "train/2/2-0017.png",
-        "train/2/2-0018.png",
-        "train/2/2-0019.png",
-        "train/2/2-0020.png",
-        "train/2/2-0021.png",
-        "train/2/2-0022.png",
-        "train/2/2-0023.png",
-    ]}
-    fourth={[
-        "train/2/2-0024.png",
-        "train/2/2-0025.png",
-        "train/2/2-0026.png",
-        "train/2/2-0027.png",
-        "train/2/2-0028.png",
-        "train/2/2-0029.png",
-        "train/2/2-0030.png",
-        "train/2/2-0031.png",
-    ]}
+  size={112}
+  heading={"Twos Images"}
+  dirname={"train"}
+  classdigit={"2"}
 />
 
-
 ### Threes
-
 <ImagesTable
-    size={112}
-    heading={"Threes Images"}
-    first={[
-        "train/3/3-0000.png",
-        "train/3/3-0001.png",
-        "train/3/3-0002.png",
-        "train/3/3-0003.png",
-        "train/3/3-0004.png",
-        "train/3/3-0005.png",
-        "train/3/3-0006.png",
-        "train/3/3-0007.png",
-    ]}
-    second={[
-        "train/3/3-0008.png",
-        "train/3/3-0009.png",
-        "train/3/3-0010.png",
-        "train/3/3-0011.png",
-        "train/3/3-0012.png",
-        "train/3/3-0013.png",
-        "train/3/3-0014.png",
-        "train/3/3-0015.png",
-    ]}
-    third={[
-        "train/3/3-0016.png",
-        "train/3/3-0017.png",
-        "train/3/3-0018.png",
-        "train/3/3-0019.png",
-        "train/3/3-0020.png",
-        "train/3/3-0021.png",
-        "train/3/3-0022.png",
-        "train/3/3-0023.png",
-    ]}
-    fourth={[
-        "train/3/3-0024.png",
-        "train/3/3-0025.png",
-        "train/3/3-0026.png",
-        "train/3/3-0027.png",
-        "train/3/3-0028.png",
-        "train/3/3-0029.png",
-        "train/3/3-0030.png",
-        "train/3/3-0031.png",
-    ]}
+  size={112}
+  heading={"Threes Images"}
+  dirname={"train"}
+  classdigit={"3"}
 />
 
 ### Fours
-
 <ImagesTable
-    size={112}
-    heading={"Fours Images"}
-    first={[
-        "train/4/4-0000.png",
-        "train/4/4-0001.png",
-        "train/4/4-0002.png",
-        "train/4/4-0003.png",
-        "train/4/4-0004.png",
-        "train/4/4-0005.png",
-        "train/4/4-0006.png",
-        "train/4/4-0007.png",
-    ]}
-    second={[
-        "train/4/4-0008.png",
-        "train/4/4-0009.png",
-        "train/4/4-0010.png",
-        "train/4/4-0011.png",
-        "train/4/4-0012.png",
-        "train/4/4-0013.png",
-        "train/4/4-0014.png",
-        "train/4/4-0015.png",
-    ]}
-    third={[
-        "train/4/4-0016.png",
-        "train/4/4-0017.png",
-        "train/4/4-0018.png",
-        "train/4/4-0019.png",
-        "train/4/4-0020.png",
-        "train/4/4-0021.png",
-        "train/4/4-0022.png",
-        "train/4/4-0023.png",
-    ]}
-    fourth={[
-        "train/4/4-0024.png",
-        "train/4/4-0025.png",
-        "train/4/4-0026.png",
-        "train/4/4-0027.png",
-        "train/4/4-0028.png",
-        "train/4/4-0029.png",
-        "train/4/4-0030.png",
-        "train/4/4-0031.png",
-    ]}
+  size={112}
+  heading={"Fours Images"}
+  dirname={"train"}
+  classdigit={"4"}
 />
 
 ### Fives
-
 <ImagesTable
-    size={112}
-    heading={"Fives Images"}
-    first={[
-        "train/5/5-0000.png",
-        "train/5/5-0001.png",
-        "train/5/5-0002.png",
-        "train/5/5-0003.png",
-        "train/5/5-0004.png",
-        "train/5/5-0005.png",
-        "train/5/5-0006.png",
-        "train/5/5-0007.png",
-    ]}
-    second={[
-        "train/5/5-0008.png",
-        "train/5/5-0009.png",
-        "train/5/5-0010.png",
-        "train/5/5-0011.png",
-        "train/5/5-0012.png",
-        "train/5/5-0013.png",
-        "train/5/5-0014.png",
-        "train/5/5-0015.png",
-    ]}
-    third={[
-        "train/5/5-0016.png",
-        "train/5/5-0017.png",
-        "train/5/5-0018.png",
-        "train/5/5-0019.png",
-        "train/5/5-0020.png",
-        "train/5/5-0021.png",
-        "train/5/5-0022.png",
-        "train/5/5-0023.png",
-    ]}
-    fourth={[
-        "train/5/5-0024.png",
-        "train/5/5-0025.png",
-        "train/5/5-0026.png",
-        "train/5/5-0027.png",
-        "train/5/5-0028.png",
-        "train/5/5-0029.png",
-        "train/5/5-0030.png",
-        "train/5/5-0031.png",
-    ]}
+  size={112}
+  heading={"Fives Images"}
+  dirname={"train"}
+  classdigit={"5"}
 />
 
 ### Sixes
-
 <ImagesTable
-    size={112}
-    heading={"Sixes Images"}
-    first={[
-        "train/6/6-0000.png",
-        "train/6/6-0001.png",
-        "train/6/6-0002.png",
-        "train/6/6-0003.png",
-        "train/6/6-0004.png",
-        "train/6/6-0005.png",
-        "train/6/6-0006.png",
-        "train/6/6-0007.png",
-    ]}
-    second={[
-        "train/6/6-0008.png",
-        "train/6/6-0009.png",
-        "train/6/6-0010.png",
-        "train/6/6-0011.png",
-        "train/6/6-0012.png",
-        "train/6/6-0013.png",
-        "train/6/6-0014.png",
-        "train/6/6-0015.png",
-    ]}
-    third={[
-        "train/6/6-0016.png",
-        "train/6/6-0017.png",
-        "train/6/6-0018.png",
-        "train/6/6-0019.png",
-        "train/6/6-0020.png",
-        "train/6/6-0021.png",
-        "train/6/6-0022.png",
-        "train/6/6-0023.png",
-    ]}
-    fourth={[
-        "train/6/6-0024.png",
-        "train/6/6-0025.png",
-        "train/6/6-0026.png",
-        "train/6/6-0027.png",
-        "train/6/6-0028.png",
-        "train/6/6-0029.png",
-        "train/6/6-0030.png",
-        "train/6/6-0031.png",
-    ]}
+  size={112}
+  heading={"Sixes Images"}
+  dirname={"train"}
+  classdigit={"6"}
 />
 
 ### Sevens
-
 <ImagesTable
-    size={112}
-    heading={"Sevens Images"}
-    first={[
-        "train/7/7-0000.png",
-        "train/7/7-0001.png",
-        "train/7/7-0002.png",
-        "train/7/7-0003.png",
-        "train/7/7-0004.png",
-        "train/7/7-0005.png",
-        "train/7/7-0006.png",
-        "train/7/7-0007.png",
-    ]}
-    second={[
-        "train/7/7-0008.png",
-        "train/7/7-0009.png",
-        "train/7/7-0010.png",
-        "train/7/7-0011.png",
-        "train/7/7-0012.png",
-        "train/7/7-0013.png",
-        "train/7/7-0014.png",
-        "train/7/7-0015.png",
-    ]}
-    third={[
-        "train/7/7-0016.png",
-        "train/7/7-0017.png",
-        "train/7/7-0018.png",
-        "train/7/7-0019.png",
-        "train/7/7-0020.png",
-        "train/7/7-0021.png",
-        "train/7/7-0022.png",
-        "train/7/7-0023.png",
-    ]}
-    fourth={[
-        "train/7/7-0024.png",
-        "train/7/7-0025.png",
-        "train/7/7-0026.png",
-        "train/7/7-0027.png",
-        "train/7/7-0028.png",
-        "train/7/7-0029.png",
-        "train/7/7-0030.png",
-        "train/7/7-0031.png",
-    ]}
+  size={112}
+  heading={"Sevens Images"}
+  dirname={"train"}
+  classdigit={"7"}
 />
 
 ### Eights
-
 <ImagesTable
-    size={112}
-    heading={"Eights Images"}
-    first={[
-        "train/8/8-0000.png",
-        "train/8/8-0001.png",
-        "train/8/8-0002.png",
-        "train/8/8-0003.png",
-        "train/8/8-0004.png",
-        "train/8/8-0005.png",
-        "train/8/8-0006.png",
-        "train/8/8-0007.png",
-    ]}
-    second={[
-        "train/8/8-0008.png",
-        "train/8/8-0009.png",
-        "train/8/8-0010.png",
-        "train/8/8-0011.png",
-        "train/8/8-0012.png",
-        "train/8/8-0013.png",
-        "train/8/8-0014.png",
-        "train/8/8-0015.png",
-    ]}
-    third={[
-        "train/8/8-0016.png",
-        "train/8/8-0017.png",
-        "train/8/8-0018.png",
-        "train/8/8-0019.png",
-        "train/8/8-0020.png",
-        "train/8/8-0021.png",
-        "train/8/8-0022.png",
-        "train/8/8-0023.png",
-    ]}
-    fourth={[
-        "train/8/8-0024.png",
-        "train/8/8-0025.png",
-        "train/8/8-0026.png",
-        "train/8/8-0027.png",
-        "train/8/8-0028.png",
-        "train/8/8-0029.png",
-        "train/8/8-0030.png",
-        "train/8/8-0031.png",
-    ]}
+  size={112}
+  heading={"Eights Images"}
+  dirname={"train"}
+  classdigit={"8"}
 />
 
-### Nines
-
+### Nines 
 <ImagesTable
-    size={112}
-    heading={"Nines Images"}
-    first={[
-        "train/9/9-0000.png",
-        "train/9/9-0001.png",
-        "train/9/9-0002.png",
-        "train/9/9-0003.png",
-        "train/9/9-0004.png",
-        "train/9/9-0005.png",
-        "train/9/9-0006.png",
-        "train/9/9-0007.png",
-    ]}
-    second={[
-        "train/9/9-0008.png",
-        "train/9/9-0009.png",
-        "train/9/9-0010.png",
-        "train/9/9-0011.png",
-        "train/9/9-0012.png",
-        "train/9/9-0013.png",
-        "train/9/9-0014.png",
-        "train/9/9-0015.png",
-    ]}
-    third={[
-        "train/9/9-0016.png",
-        "train/9/9-0017.png",
-        "train/9/9-0018.png",
-        "train/9/9-0019.png",
-        "train/9/9-0020.png",
-        "train/9/9-0021.png",
-        "train/9/9-0022.png",
-        "train/9/9-0023.png",
-    ]}
-    fourth={[
-        "train/9/9-0024.png",
-        "train/9/9-0025.png",
-        "train/9/9-0026.png",
-        "train/9/9-0027.png",
-        "train/9/9-0028.png",
-        "train/9/9-0029.png",
-        "train/9/9-0030.png",
-        "train/9/9-0031.png",
-    ]}
+  size={112}
+  heading={"Nines Images"}
+  dirname={"train"}
+  classdigit={"9"}
 />
 
 
@@ -623,489 +185,679 @@ done
 "9":     1009
 ```
 
-### Zeros
-<ImagesTable
-    size={112}
-    heading={"Zeros Images"}
-    first={[
-        "test/0/0-0000.png",
-        "test/0/0-0001.png",
-        "test/0/0-0002.png",
-        "test/0/0-0003.png",
-        "test/0/0-0004.png",
-        "test/0/0-0005.png",
-        "test/0/0-0006.png",
-        "test/0/0-0007.png",
-    ]}
-    second={[
-        "test/0/0-0008.png",
-        "test/0/0-0009.png",
-        "test/0/0-0010.png",
-        "test/0/0-0011.png",
-        "test/0/0-0012.png",
-        "test/0/0-0013.png",
-        "test/0/0-0014.png",
-        "test/0/0-0015.png",
-    ]}
-    third={[
-        "test/0/0-0016.png",
-        "test/0/0-0017.png",
-        "test/0/0-0018.png",
-        "test/0/0-0019.png",
-        "test/0/0-0020.png",
-        "test/0/0-0021.png",
-        "test/0/0-0022.png",
-        "test/0/0-0023.png",
-    ]}
-    fourth={[
-        "test/0/0-0024.png",
-        "test/0/0-0025.png",
-        "test/0/0-0026.png",
-        "test/0/0-0027.png",
-        "test/0/0-0028.png",
-        "test/0/0-0029.png",
-        "test/0/0-0030.png",
-        "test/0/0-0031.png",
-    ]}
-/>
 
 ### Ones
 
 <ImagesTable
-    size={112}
-    heading={"Ones Images"}
-    first={[
-        "test/1/1-0000.png",
-        "test/1/1-0001.png",
-        "test/1/1-0002.png",
-        "test/1/1-0003.png",
-        "test/1/1-0004.png",
-        "test/1/1-0005.png",
-        "test/1/1-0006.png",
-        "test/1/1-0007.png",
-    ]}
-    second={[
-        "test/1/1-0008.png",
-        "test/1/1-0009.png",
-        "test/1/1-0010.png",
-        "test/1/1-0011.png",
-        "test/1/1-0012.png",
-        "test/1/1-0013.png",
-        "test/1/1-0014.png",
-        "test/1/1-0015.png",
-    ]}
-    third={[
-        "test/1/1-0016.png",
-        "test/1/1-0017.png",
-        "test/1/1-0018.png",
-        "test/1/1-0019.png",
-        "test/1/1-0020.png",
-        "test/1/1-0021.png",
-        "test/1/1-0022.png",
-        "test/1/1-0023.png",
-    ]}
-    fourth={[
-        "test/1/1-0024.png",
-        "test/1/1-0025.png",
-        "test/1/1-0026.png",
-        "test/1/1-0027.png",
-        "test/1/1-0028.png",
-        "test/1/1-0029.png",
-        "test/1/1-0030.png",
-        "test/1/1-0031.png",
-    ]}
+  size={112}
+  heading={"Ones Images"}
+  dirname={"test"}
+  classdigit={"1"}
 />
 
 ### Twos
 
 <ImagesTable
-    size={112}
-    heading={"Twos Images"}
-    first={[
-        "test/2/2-0000.png",
-        "test/2/2-0001.png",
-        "test/2/2-0002.png",
-        "test/2/2-0003.png",
-        "test/2/2-0004.png",
-        "test/2/2-0005.png",
-        "test/2/2-0006.png",
-        "test/2/2-0007.png",
-    ]}
-    second={[
-        "test/2/2-0008.png",
-        "test/2/2-0009.png",
-        "test/2/2-0010.png",
-        "test/2/2-0011.png",
-        "test/2/2-0012.png",
-        "test/2/2-0013.png",
-        "test/2/2-0014.png",
-        "test/2/2-0015.png",
-    ]}
-    third={[
-        "test/2/2-0016.png",
-        "test/2/2-0017.png",
-        "test/2/2-0018.png",
-        "test/2/2-0019.png",
-        "test/2/2-0020.png",
-        "test/2/2-0021.png",
-        "test/2/2-0022.png",
-        "test/2/2-0023.png",
-    ]}
-    fourth={[
-        "test/2/2-0024.png",
-        "test/2/2-0025.png",
-        "test/2/2-0026.png",
-        "test/2/2-0027.png",
-        "test/2/2-0028.png",
-        "test/2/2-0029.png",
-        "test/2/2-0030.png",
-        "test/2/2-0031.png",
-    ]}
+  size={112}
+  heading={"Twos Images"}
+  dirname={"test"}
+  classdigit={"2"}
 />
 
 ### Threes
 
 <ImagesTable
-    size={112}
-    heading={"Threes Images"}
-    first={[
-        "test/3/3-0000.png",
-        "test/3/3-0001.png",
-        "test/3/3-0002.png",
-        "test/3/3-0003.png",
-        "test/3/3-0004.png",
-        "test/3/3-0005.png",
-        "test/3/3-0006.png",
-        "test/3/3-0007.png",
-    ]}
-    second={[
-        "test/3/3-0008.png",
-        "test/3/3-0009.png",
-        "test/3/3-0010.png",
-        "test/3/3-0011.png",
-        "test/3/3-0012.png",
-        "test/3/3-0013.png",
-        "test/3/3-0014.png",
-        "test/3/3-0015.png",
-    ]}
-    third={[
-        "test/3/3-0016.png",
-        "test/3/3-0017.png",
-        "test/3/3-0018.png",
-        "test/3/3-0019.png",
-        "test/3/3-0020.png",
-        "test/3/3-0021.png",
-        "test/3/3-0022.png",
-        "test/3/3-0023.png",
-    ]}
-    fourth={[
-        "test/3/3-0024.png",
-        "test/3/3-0025.png",
-        "test/3/3-0026.png",
-        "test/3/3-0027.png",
-        "test/3/3-0028.png",
-        "test/3/3-0029.png",
-        "test/3/3-0030.png",
-        "test/3/3-0031.png",
-    ]}
+  size={112}
+  heading={"Threes Images"}
+  dirname={"test"}
+  classdigit={"3"}
 />
 
 ### Fours
 
 <ImagesTable
-    size={112}
-    heading={"Fours Images"}
-    first={[
-        "test/4/4-0000.png",
-        "test/4/4-0001.png",
-        "test/4/4-0002.png",
-        "test/4/4-0003.png",
-        "test/4/4-0004.png",
-        "test/4/4-0005.png",
-        "test/4/4-0006.png",
-        "test/4/4-0007.png",
-    ]}
-    second={[
-        "test/4/4-0008.png",
-        "test/4/4-0009.png",
-        "test/4/4-0010.png",
-        "test/4/4-0011.png",
-        "test/4/4-0012.png",
-        "test/4/4-0013.png",
-        "test/4/4-0014.png",
-        "test/4/4-0015.png",
-    ]}
-    third={[
-        "test/4/4-0016.png",
-        "test/4/4-0017.png",
-        "test/4/4-0018.png",
-        "test/4/4-0019.png",
-        "test/4/4-0020.png",
-        "test/4/4-0021.png",
-        "test/4/4-0022.png",
-        "test/4/4-0023.png",
-    ]}
-    fourth={[
-        "test/4/4-0024.png",
-        "test/4/4-0025.png",
-        "test/4/4-0026.png",
-        "test/4/4-0027.png",
-        "test/4/4-0028.png",
-        "test/4/4-0029.png",
-        "test/4/4-0030.png",
-        "test/4/4-0031.png",
-    ]}
+  size={112}
+  heading={"Fours Images"}
+  dirname={"test"}
+  classdigit={"4"}
 />
 
 ### Fives
 
 <ImagesTable
-    size={112}
-    heading={"Fives Images"}
-    first={[
-        "test/5/5-0000.png",
-        "test/5/5-0001.png",
-        "test/5/5-0002.png",
-        "test/5/5-0003.png",
-        "test/5/5-0004.png",
-        "test/5/5-0005.png",
-        "test/5/5-0006.png",
-        "test/5/5-0007.png",
-    ]}
-    second={[
-        "test/5/5-0008.png",
-        "test/5/5-0009.png",
-        "test/5/5-0010.png",
-        "test/5/5-0011.png",
-        "test/5/5-0012.png",
-        "test/5/5-0013.png",
-        "test/5/5-0014.png",
-        "test/5/5-0015.png",
-    ]}
-    third={[
-        "test/5/5-0016.png",
-        "test/5/5-0017.png",
-        "test/5/5-0018.png",
-        "test/5/5-0019.png",
-        "test/5/5-0020.png",
-        "test/5/5-0021.png",
-        "test/5/5-0022.png",
-        "test/5/5-0023.png",
-    ]}
-    fourth={[
-        "test/5/5-0024.png",
-        "test/5/5-0025.png",
-        "test/5/5-0026.png",
-        "test/5/5-0027.png",
-        "test/5/5-0028.png",
-        "test/5/5-0029.png",
-        "test/5/5-0030.png",
-        "test/5/5-0031.png",
-    ]}
+  size={112}
+  heading={"Fives Images"}
+  dirname={"test"}
+  classdigit={"5"}
 />
 
 ### Sixes
 
 <ImagesTable
-    size={112}
-    heading={"Sixes Images"}
-    first={[
-        "test/6/6-0000.png",
-        "test/6/6-0001.png",
-        "test/6/6-0002.png",
-        "test/6/6-0003.png",
-        "test/6/6-0004.png",
-        "test/6/6-0005.png",
-        "test/6/6-0006.png",
-        "test/6/6-0007.png",
-    ]}
-    second={[
-        "test/6/6-0008.png",
-        "test/6/6-0009.png",
-        "test/6/6-0010.png",
-        "test/6/6-0011.png",
-        "test/6/6-0012.png",
-        "test/6/6-0013.png",
-        "test/6/6-0014.png",
-        "test/6/6-0015.png",
-    ]}
-    third={[
-        "test/6/6-0016.png",
-        "test/6/6-0017.png",
-        "test/6/6-0018.png",
-        "test/6/6-0019.png",
-        "test/6/6-0020.png",
-        "test/6/6-0021.png",
-        "test/6/6-0022.png",
-        "test/6/6-0023.png",
-    ]}
-    fourth={[
-        "test/6/6-0024.png",
-        "test/6/6-0025.png",
-        "test/6/6-0026.png",
-        "test/6/6-0027.png",
-        "test/6/6-0028.png",
-        "test/6/6-0029.png",
-        "test/6/6-0030.png",
-        "test/6/6-0031.png",
-    ]}
+  size={112}
+  heading={"Sixes Images"}
+  dirname={"test"}
+  classdigit={"6"}
 />
 
 ### Sevens
 
 <ImagesTable
-    size={112}
-    heading={"Sevens Images"}
-    first={[
-        "test/7/7-0000.png",
-        "test/7/7-0001.png",
-        "test/7/7-0002.png",
-        "test/7/7-0003.png",
-        "test/7/7-0004.png",
-        "test/7/7-0005.png",
-        "test/7/7-0006.png",
-        "test/7/7-0007.png",
-    ]}
-    second={[
-        "test/7/7-0008.png",
-        "test/7/7-0009.png",
-        "test/7/7-0010.png",
-        "test/7/7-0011.png",
-        "test/7/7-0012.png",
-        "test/7/7-0013.png",
-        "test/7/7-0014.png",
-        "test/7/7-0015.png",
-    ]}
-    third={[
-        "test/7/7-0016.png",
-        "test/7/7-0017.png",
-        "test/7/7-0018.png",
-        "test/7/7-0019.png",
-        "test/7/7-0020.png",
-        "test/7/7-0021.png",
-        "test/7/7-0022.png",
-        "test/7/7-0023.png",
-    ]}
-    fourth={[
-        "test/7/7-0024.png",
-        "test/7/7-0025.png",
-        "test/7/7-0026.png",
-        "test/7/7-0027.png",
-        "test/7/7-0028.png",
-        "test/7/7-0029.png",
-        "test/7/7-0030.png",
-        "test/7/7-0031.png",
-    ]}
+  size={112}
+  heading={"Sevens Images"}
+  dirname={"test"}
+  classdigit={"7"}
 />
 
 ### Eights
 
 <ImagesTable
-    size={112}
-    heading={"Eights Images"}
-    first={[
-        "test/8/8-0000.png",
-        "test/8/8-0001.png",
-        "test/8/8-0002.png",
-        "test/8/8-0003.png",
-        "test/8/8-0004.png",
-        "test/8/8-0005.png",
-        "test/8/8-0006.png",
-        "test/8/8-0007.png",
-    ]}
-    second={[
-        "test/8/8-0008.png",
-        "test/8/8-0009.png",
-        "test/8/8-0010.png",
-        "test/8/8-0011.png",
-        "test/8/8-0012.png",
-        "test/8/8-0013.png",
-        "test/8/8-0014.png",
-        "test/8/8-0015.png",
-    ]}
-    third={[
-        "test/8/8-0016.png",
-        "test/8/8-0017.png",
-        "test/8/8-0018.png",
-        "test/8/8-0019.png",
-        "test/8/8-0020.png",
-        "test/8/8-0021.png",
-        "test/8/8-0022.png",
-        "test/8/8-0023.png",
-    ]}
-    fourth={[
-        "test/8/8-0024.png",
-        "test/8/8-0025.png",
-        "test/8/8-0026.png",
-        "test/8/8-0027.png",
-        "test/8/8-0028.png",
-        "test/8/8-0029.png",
-        "test/8/8-0030.png",
-        "test/8/8-0031.png",
-    ]}
+  size={112}
+  heading={"Eights Images"}
+  dirname={"test"}
+  classdigit={"8"}
 />
 
 ### Nines
 
 <ImagesTable
-    size={112}
-    heading={"Nines Images"}
-    first={[
-        "test/9/9-0000.png",
-        "test/9/9-0001.png",
-        "test/9/9-0002.png",
-        "test/9/9-0003.png",
-        "test/9/9-0004.png",
-        "test/9/9-0005.png",
-        "test/9/9-0006.png",
-        "test/9/9-0007.png",
-    ]}
-    second={[
-        "test/9/9-0008.png",
-        "test/9/9-0009.png",
-        "test/9/9-0010.png",
-        "test/9/9-0011.png",
-        "test/9/9-0012.png",
-        "test/9/9-0013.png",
-        "test/9/9-0014.png",
-        "test/9/9-0015.png",
-    ]}
-    third={[
-        "test/9/9-0016.png",
-        "test/9/9-0017.png",
-        "test/9/9-0018.png",
-        "test/9/9-0019.png",
-        "test/9/9-0020.png",
-        "test/9/9-0021.png",
-        "test/9/9-0022.png",
-        "test/9/9-0023.png",
-    ]}
-    fourth={[
-        "test/9/9-0024.png",
-        "test/9/9-0025.png",
-        "test/9/9-0026.png",
-        "test/9/9-0027.png",
-        "test/9/9-0028.png",
-        "test/9/9-0029.png",
-        "test/9/9-0030.png",
-        "test/9/9-0031.png",
-    ]}
+  size={112}
+  heading={"Nines Images"}
+  dirname={"test"}
+  classdigit={"9"}
+/>
+
+
+## Visualize Wrong Predictions
+
+### Zeros
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="0"
+  imagePaths={[
+    "0-0000-9.png",
+    "0-0001-9.png",
+    "0-0002-6.png",
+    "0-0003-3.png",
+    "0-0004-9.png",
+    "0-0005-8.png",
+    "0-0006-7.png",
+    "0-0007-4.png",
+    "0-0008-3.png",
+    "0-0009-9.png",
+    "0-0010-6.png",
+    "0-0011-1.png"
+  ]}
+/>
+
+
+### Ones
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="1"
+  imagePaths={[
+    "1-0000-8.png",
+    "1-0003-2.png",
+    "1-0006-8.png",
+    "1-0009-8.png",
+    "1-0001-2.png",
+    "1-0004-3.png",
+    "1-0007-8.png",
+    "1-0010-8.png",
+    "1-0002-2.png",
+    "1-0005-6.png",
+    "1-0008-6.png"
+  ]}
+/>
+
+### Twos
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="2"
+  imagePaths={[
+    "2-0000-7.png",
+    "2-0009-3.png",
+    "2-0018-0.png",
+    "2-0027-8.png",
+    "2-0036-0.png",
+    "2-0001-1.png",
+    "2-0010-0.png",
+    "2-0019-3.png",
+    "2-0028-3.png",
+    "2-0037-8.png",
+    "2-0002-8.png",
+    "2-0011-0.png",
+    "2-0020-3.png",
+    "2-0029-6.png",
+    "2-0038-3.png",
+    "2-0003-1.png",
+    "2-0012-3.png",
+    "2-0021-7.png",
+    "2-0030-3.png",
+    "2-0039-8.png",
+    "2-0004-7.png",
+    "2-0013-1.png",
+    "2-0022-1.png",
+    "2-0031-8.png",
+    "2-0040-0.png",
+    "2-0005-3.png",
+    "2-0014-0.png",
+    "2-0023-7.png",
+    "2-0032-4.png",
+    "2-0006-6.png",
+    "2-0015-4.png",
+    "2-0024-8.png",
+    "2-0033-7.png",
+    "2-0007-0.png",
+    "2-0016-3.png",
+    "2-0025-3.png",
+    "2-0034-8.png",
+    "2-0008-8.png",
+    "2-0017-1.png",
+    "2-0026-3.png",
+    "2-0035-0.png"
+  ]}
+/>
+
+
+### Threes
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="3"
+  imagePaths={[
+    "3-0000-8.png",
+    "3-0006-7.png",
+    "3-0012-5.png",
+    "3-0018-5.png",
+    "3-0024-9.png",
+    "3-0001-7.png",
+    "3-0007-2.png",
+    "3-0013-7.png",
+    "3-0019-2.png",
+    "3-0025-8.png",
+    "3-0002-7.png",
+    "3-0008-7.png",
+    "3-0014-8.png",
+    "3-0020-2.png",
+    "3-0026-8.png",
+    "3-0003-5.png",
+    "3-0009-7.png",
+    "3-0015-8.png",
+    "3-0021-2.png",
+    "3-0004-5.png",
+    "3-0010-2.png",
+    "3-0016-5.png",
+    "3-0022-2.png",
+    "3-0005-2.png",
+    "3-0011-8.png",
+    "3-0017-5.png",
+    "3-0023-9.png"
+  ]}
 />
 
 
 
-<!--  -->
+### Fours
 
-<ImagesTable
-    size={112}
-    heading={"Ones Images"}
-    dirname={"train"}
-    classname={"1"}
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="4"
+  imagePaths={[
+    "4-0000-2.png",
+    "4-0005-6.png",
+    "4-0010-6.png",
+    "4-0015-6.png",
+    "4-0020-7.png",
+    "4-0001-9.png",
+    "4-0006-6.png",
+    "4-0011-2.png",
+    "4-0016-7.png",
+    "4-0021-0.png",
+    "4-0002-6.png",
+    "4-0007-2.png",
+    "4-0012-9.png",
+    "4-0017-2.png",
+    "4-0022-1.png",
+    "4-0003-0.png",
+    "4-0008-6.png",
+    "4-0013-7.png",
+    "4-0018-9.png",
+    "4-0004-9.png",
+    "4-0009-2.png",
+    "4-0014-9.png",
+    "4-0019-8.png"
+  ]}
 />
 
-<ImagesTable
-    size={112}
-    heading={"Ones Images"}
-    dirname={"test"}
-    classname={"9"}
+
+### Fives
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="5"
+  imagePaths={[
+    "5-0000-3.png",
+    "5-0007-6.png",
+    "5-0014-3.png",
+    "5-0021-3.png",
+    "5-0028-3.png",
+    "5-0001-8.png",
+    "5-0008-8.png",
+    "5-0015-0.png",
+    "5-0022-3.png",
+    "5-0029-6.png",
+    "5-0002-9.png",
+    "5-0009-3.png",
+    "5-0016-3.png",
+    "5-0023-3.png",
+    "5-0030-0.png",
+    "5-0003-3.png",
+    "5-0010-3.png",
+    "5-0017-2.png",
+    "5-0024-8.png",
+    "5-0031-6.png",
+    "5-0004-3.png",
+    "5-0011-3.png",
+    "5-0018-6.png",
+    "5-0025-3.png",
+    "5-0032-6.png",
+    "5-0005-3.png",
+    "5-0012-4.png",
+    "5-0019-3.png",
+    "5-0026-3.png",
+    "5-0006-0.png",
+    "5-0013-9.png",
+    "5-0020-3.png",
+    "5-0027-3.png"
+  ]}
 />
+
+
+
+### Sixs
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="6"
+  imagePaths={[
+    "6-0000-0.png",
+    "6-0004-0.png",
+    "6-0008-0.png",
+    "6-0012-2.png",
+    "6-0016-5.png",
+    "6-0001-0.png",
+    "6-0005-1.png",
+    "6-0009-4.png",
+    "6-0013-0.png",
+    "6-0002-5.png",
+    "6-0006-1.png",
+    "6-0010-5.png",
+    "6-0014-4.png",
+    "6-0003-1.png",
+    "6-0007-4.png",
+    "6-0011-2.png",
+    "6-0015-3.png"
+  ]}
+/>
+
+
+### Sevens
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="7"
+  imagePaths={[
+    "7-0000-3.png",
+    "7-0007-0.png",
+    "7-0014-2.png",
+    "7-0021-1.png",
+    "7-0028-2.png",
+    "7-0001-2.png",
+    "7-0008-9.png",
+    "7-0015-3.png",
+    "7-0022-0.png",
+    "7-0029-2.png",
+    "7-0002-8.png",
+    "7-0009-3.png",
+    "7-0016-3.png",
+    "7-0023-1.png",
+    "7-0030-2.png",
+    "7-0003-9.png",
+    "7-0010-1.png",
+    "7-0017-1.png",
+    "7-0024-1.png",
+    "7-0031-2.png",
+    "7-0004-2.png",
+    "7-0011-3.png",
+    "7-0018-1.png",
+    "7-0025-1.png",
+    "7-0005-1.png",
+    "7-0012-1.png",
+    "7-0019-9.png",
+    "7-0026-1.png",
+    "7-0006-9.png",
+    "7-0013-5.png",
+    "7-0020-1.png",
+    "7-0027-3.png"
+  ]}
+/>
+
+
+
+### Eights
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="8"
+  imagePaths={[
+    "8-0000-0.png",
+    "8-0010-4.png",
+    "8-0020-9.png",
+    "8-0030-0.png",
+    "8-0040-9.png",
+    "8-0001-4.png",
+    "8-0011-7.png",
+    "8-0021-9.png",
+    "8-0031-6.png",
+    "8-0041-0.png",
+    "8-0002-2.png",
+    "8-0012-0.png",
+    "8-0022-5.png",
+    "8-0032-4.png",
+    "8-0042-6.png",
+    "8-0003-0.png",
+    "8-0013-3.png",
+    "8-0023-0.png",
+    "8-0033-3.png",
+    "8-0043-4.png",
+    "8-0004-2.png",
+    "8-0014-3.png",
+    "8-0024-3.png",
+    "8-0034-4.png",
+    "8-0044-2.png",
+    "8-0005-4.png",
+    "8-0015-9.png",
+    "8-0025-7.png",
+    "8-0035-4.png",
+    "8-0045-7.png",
+    "8-0006-7.png",
+    "8-0016-4.png",
+    "8-0026-4.png",
+    "8-0036-2.png",
+    "8-0046-6.png",
+    "8-0007-6.png",
+    "8-0017-1.png",
+    "8-0027-3.png",
+    "8-0037-9.png",
+    "8-0047-6.png",
+    "8-0008-9.png",
+    "8-0018-0.png",
+    "8-0028-0.png",
+    "8-0038-9.png",
+    "8-0048-5.png",
+    "8-0009-0.png",
+    "8-0019-0.png",
+    "8-0029-7.png",
+    "8-0039-4.png",
+    "8-0049-6.png"
+  ]}
+/>
+
+
+
+### Nines
+
+<CustomImagesTable
+  size={112}
+  heading="Wrong Predictions"
+  dirname="wrong-predictions"
+  classdigit="9"
+  imagePaths={[
+    "9-0000-5.png",
+    "9-0008-5.png",
+    "9-0016-5.png",
+    "9-0024-7.png",
+    "9-0032-4.png",
+    "9-0001-4.png",
+    "9-0009-0.png",
+    "9-0017-1.png",
+    "9-0025-5.png",
+    "9-0033-4.png",
+    "9-0002-3.png",
+    "9-0010-1.png",
+    "9-0018-1.png",
+    "9-0026-4.png",
+    "9-0034-7.png",
+    "9-0003-3.png",
+    "9-0011-1.png",
+    "9-0019-3.png",
+    "9-0027-4.png",
+    "9-0035-4.png",
+    "9-0004-8.png",
+    "9-0012-4.png",
+    "9-0020-4.png",
+    "9-0028-1.png",
+    "9-0036-4.png",
+    "9-0005-4.png",
+    "9-0013-3.png",
+    "9-0021-4.png",
+    "9-0029-3.png",
+    "9-0006-8.png",
+    "9-0014-0.png",
+    "9-0022-4.png",
+    "9-0030-4.png",
+    "9-0007-1.png",
+    "9-0015-4.png",
+    "9-0023-4.png",
+    "9-0031-0.png"
+  ]}
+/>
+
+
+## Confusion Matrix
+
+<div align="center">
+
+![confusion-matrix](/assets/datasets/minst/confusion-matrices/mnist-train-4-97.17.png)
+
+</div>
+
+## Code
+
+### Imports && Magic Numbers
+
+```python
+import os
+from pathlib import Path
+from typing import Final
+
+import tensorflow as tf
+
+import utils
+```
+
+```python
+EPOCHS: Final[int] = 4
+```
+
+
+### Load model
+
+```python
+utils.log_to_file(f"Training with EPOCHS={EPOCHS}")
+```
+
+```python
+"""minst.load_data()
+Returns:
+    - Tuple of NumPy arrays: (x_train, y_train), (x_test, y_test).
+
+    - x_train: uint8 NumPy array of grayscale image data with shapes
+    (60000, 28, 28), containing the training data. Pixel values range from 0 to 255.
+
+    - y_train: uint8 NumPy array of digit labels (integers in range 0-9)
+    with shape (60000,) for the training data.
+
+    - x_test: uint8 NumPy array of grayscale image data with shapes
+    (10000, 28, 28), containing the test data. Pixel values range from 0 to 255.
+
+    - y_test: uint8 NumPy array of digit labels (integers in range 0-9)
+    with shape (10000,) for the test data.
+"""
+
+minst = tf.keras.datasets.mnist
+(x_train, y_train), (x_test, y_test) = minst.load_data(path=os.path.join(
+    utils.DATA_DIR, 
+    "datasets", 
+    "mnist.npz"
+))
+```
+
+```python
+assert x_train.shape == (60_000, 28, 28)
+assert x_train.dtype == "uint8"
+
+assert y_train.shape == (60_000,)
+assert y_train.dtype == "uint8"
+
+assert x_test.shape == (10_000, 28, 28)
+assert x_test.dtype == "uint8"
+
+assert y_test.shape == (10_000,)
+assert y_test.dtype == "uint8"
+```
+
+### Training Model
+
+```python
+x_train = tf.keras.utils.normalize(x_train, axis=1)
+x_test = tf.keras.utils.normalize(x_test, axis=1)
+```
+
+```python
+assert x_train.dtype == "float64"
+assert x_test.dtype == "float64"
+```
+
+```python
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Flatten(input_shape=(28, 28)))
+model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
+model.add(tf.keras.layers.Dense(units=128, activation=tf.nn.relu))
+model.add(tf.keras.layers.Dense(units=10, activation=tf.nn.softmax))
+
+model.compile(
+    optimizer=tf.keras.optimizers.Adam(), 
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(), 
+    metrics=['accuracy']
+)
+```
+
+```python
+model.fit(x_train, y_train, epochs=EPOCHS)
+```
+
+```python
+val_loss, val_acc = model.evaluate(x_test, y_test)
+utils.log_to_file(f"Loss: {val_loss:.4f}, Accuracy: {val_acc*100:.2f}%")
+```
+
+```python
+model_path: Path = os.path.join(
+    utils.DATA_DIR, 
+    "models", 
+    str(EPOCHS), 
+    f"mnist-{EPOCHS}-{val_acc*100:.2f}.model"
+)
+model.save(model_path)
+```
+
+```python
+utils.log_to_file(f"Finished training with EPOCHS={EPOCHS}")
+utils.log_to_file(f"Model saved to path '{str(model_path)}'")
+```
+
+### Calc Confusion Matrix
+
+```python
+import numpy as np
+
+y_test_predected: np.ndarray[np.ndarray] = model.predict(x_test)
+
+y_test_predected_labels: list[int] = [
+    np.argmax(prediction)
+    for prediction in y_test_predected
+]
+
+utils.log_to_file(f"False predictions: {sum(y_test_predected_labels != y_test):,}/{len(y_test):,}")
+utils.log_to_file(f"True predictions: {sum(y_test_predected_labels == y_test):,}/{len(y_test):,}")
+```
+
+```python
+confusion_matrix = tf.math.confusion_matrix(
+    labels=y_test,
+    predictions=y_test_predected_labels
+)
+```
+
+```python
+import seaborn as sn
+import pandas as pd
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(10,7))
+sn.heatmap(confusion_matrix, annot=True, fmt='g')
+
+Path(os.path.join(
+    utils.DATA_DIR, 
+    "confusion-matrices", 
+    str(EPOCHS), 
+    "train"
+)).mkdir(parents=True, exist_ok=True)
+
+confusion_matrix_path: Path = os.path.join(
+    utils.DATA_DIR, 
+    "confusion-matrices", 
+    str(EPOCHS), 
+    "train",
+    f"mnist-{EPOCHS}-{val_acc*100:.2f}.png"
+)
+plt.savefig(confusion_matrix_path)
+plt.show()
+
+utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}'")
+```
+
+
+## Logs
+```.log
+[2023-10-25 12:26:40] Training with EPOCHS=4
+[2023-10-25 12:26:49] Loss: 0.0918, Accuracy: 97.17%
+[2023-10-25 12:26:50] Finished training with EPOCHS=4
+[2023-10-25 12:26:50] Model saved to path '/Users/ziadh/Desktop/playgroud/image-processing/classifications/mnist/data/models/4/mnist-4-97.17.model'
+[2023-10-25 12:26:50] False predictions: 283/10,000
+[2023-10-25 12:26:50] True predictions: 9,717/10,000
+[2023-10-25 12:26:50] Confusion matrix saved to path '/Users/ziadh/Desktop/playgroud/image-processing/classifications/mnist/data/confusion-matrices/4/train/mnist-4-97.17.png'
+```
