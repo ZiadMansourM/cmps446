@@ -850,6 +850,22 @@ plt.show()
 utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}'")
 ```
 
+## Custom Test
+
+### Custom Datasets
+
+0 predected 0 | 1 predected 1 | 2 predected 3 | 3 predected 3 | 4 predected 7
+:--: | :--: | :--: | :--: | :--:
+![zero](/assets/datasets/minst/custom-test/0.png) | ![one](/assets/datasets/minst/custom-test/1.png) | ![two](/assets/datasets/minst/custom-test/2.png) | ![three](/assets/datasets/minst/custom-test/3.png) | ![four](/assets/datasets/minst/custom-test/4.png)
+
+
+5 predected 5 | 6 predected 5 | 7 predected 1 | 8 predected 3 | 9 predected 3
+:--: | :--: | :--: | :--: | :--:
+![five](/assets/datasets/minst/custom-test/5.png) | ![six](/assets/datasets/minst/custom-test/6.png) | ![seven](/assets/datasets/minst/custom-test/7.png) | ![eight](/assets/datasets/minst/custom-test/8.png) | ![nine](/assets/datasets/minst/custom-test/9.png)
+
+### Confusion Matrix
+![confusion-matrix](/assets/datasets/minst/custom-test/mnist-test-4-97.13.png)
+
 
 ## Logs
 ```.log
@@ -860,6 +876,20 @@ utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}
 [2023-10-25 12:26:50] False predictions: 283/10,000
 [2023-10-25 12:26:50] True predictions: 9,717/10,000
 [2023-10-25 12:26:50] Confusion matrix saved to path '/Users/ziadh/Desktop/playgroud/image-processing/classifications/mnist/data/confusion-matrices/4/train/mnist-4-97.17.png'
+[2023-10-25 17:23:24] Testing model with EPOCHS: 4 and ACCURACY: 97.17
+[2023-10-25 17:23:24] predected: 3 and it was 8
+[2023-10-25 17:23:24] predected: 3 and it was 9
+[2023-10-25 17:23:24] predected: 7 and it was 4
+[2023-10-25 17:23:24] predected: 5 and it was 5
+[2023-10-25 17:23:24] predected: 1 and it was 7
+[2023-10-25 17:23:24] predected: 5 and it was 6
+[2023-10-25 17:23:24] predected: 3 and it was 2
+[2023-10-25 17:23:24] predected: 3 and it was 3
+[2023-10-25 17:23:24] predected: 1 and it was 1
+[2023-10-25 17:23:24] predected: 0 and it was 0
+[2023-10-25 17:23:24] Accuracy: 40.0%
+[2023-10-25 17:23:24] Number of faults: 6/10
+[2023-10-25 17:23:24] Number of correct: 4/10
 ```
 
 ## REFERENCES
