@@ -11,6 +11,7 @@ const ImagesTable = ({ dirname, classdigit, heading, size }) => {
           src={`/assets/datasets/minst/${dirname}/${classdigit}/${classdigit}-${i.toString().padStart(4, '0')}.png`}
           width={size}
           height={size}
+          style={{ maxWidth: '100%', height: 'auto' }} // Add this style
         />
       </td>
     );
@@ -24,7 +25,7 @@ const ImagesTable = ({ dirname, classdigit, heading, size }) => {
 
   return (
     <div style={{ display: 'inline-block' }}>
-      <table>
+      <table style={{ width: '100%' }}>
         <tbody>
           <tr>
             <td colSpan={8} style={{ textAlign: 'center' }}>

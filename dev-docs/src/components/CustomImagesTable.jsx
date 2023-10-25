@@ -31,6 +31,7 @@ const CustomImagesTable = ({ dirname, classdigit, heading, size, imagePaths }) =
                       src={`/assets/datasets/minst/${dirname}/${classdigit}/${imagePath}`}
                       width={size}
                       height={size}
+                      style={{ maxWidth: '100%', height: 'auto' }} // Add this style
                     />
                   </td>
                 );
