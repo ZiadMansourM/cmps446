@@ -909,6 +909,8 @@ utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}
 ## Comments
 - We can infer from the confusion matrix and comparing pictures of wrong predictions with correct ones that the model would have been more accurate if skeletonization were performed on the images.
 
+> Look up difference between Thinning and skeletonization
+
 ## REFERENCES
 - [Repository Containing all the work.](https://github.com/ZiadMansourM/glassy)
 - [3b1b Neural networks](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ZR2rxvVOAf8aW3A1)
