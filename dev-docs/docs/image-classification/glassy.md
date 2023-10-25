@@ -861,3 +861,9 @@ utils.log_to_file(f"Confusion matrix saved to path '{str(confusion_matrix_path)}
 [2023-10-25 12:26:50] True predictions: 9,717/10,000
 [2023-10-25 12:26:50] Confusion matrix saved to path '/Users/ziadh/Desktop/playgroud/image-processing/classifications/mnist/data/confusion-matrices/4/train/mnist-4-97.17.png'
 ```
+
+## REFERENCES
+- [Repository Containing all the work.](https://github.com/ZiadMansourM/glassy)
+- [3b1b Neural networks](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ZR2rxvVOAf8aW3A1)
+- [Stanford CS231n.](http://cs231n.stanford.edu/)
+- [Neural Network Python Project - Handwritten Digit Recognition.](https://youtu.be/bte8Er0QhDg?si=v08WrMPzQmQIQeWE)
