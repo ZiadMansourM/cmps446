@@ -8,6 +8,8 @@ slug: /image-classification/glassy
 import ImagesTable from "../../src/components/ImagesTable";
 import CustomImagesTable from "../../src/components/CustomImagesTable";
 
+![mr-glassy](/assets/datasets/minst/glassy.png)
+
 
 ## MNIST digits dataset
 This is a [dataset](https://keras.io/api/datasets/mnist/) of 60,000 28x28 grayscale images of the 10 digits, along with a test set of 10,000 images. More info can be found at the [MNIST homepage](http://yann.lecun.com/exdb/mnist/).
