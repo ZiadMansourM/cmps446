@@ -477,6 +477,7 @@ Late Blight predected Healthy | Late Blight predected Healthy
 ```
 
 ## REFERENCES
+- [Repository Containing all the work.](https://github.com/ZiadMansourM/crispy)
 - [Download PlantVillage Dataset.](https://www.kaggle.com/datasets/arjuntejaswi/plant-village)
 - [3b1b - Neural Networks.](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=DtU_sO-hGCK0OnPv)
 - [Practical Playlist.](https://youtube.com/playlist?list=PLeo1K3hjS3ut49PskOfLnE6WUoOp_2lsD&si=LjLFCI1xtG_0eLNF)
