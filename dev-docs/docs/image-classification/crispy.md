@@ -460,3 +460,8 @@ Late Blight predected Healthy | Late Blight predected Healthy
 [2023-10-19 22:32:04] Accuracy: 98.05%
 [2023-10-26 11:12:11] Train size: 54, Validation size: 6, Test size: 8
 ```
+
+## REFERENCES
+- [Download PlantVillage Dataset.](https://www.kaggle.com/datasets/arjuntejaswi/plant-village)
+- [3b1b - Neural Networks.](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=DtU_sO-hGCK0OnPv)
+- [Practical Playlist.](https://youtube.com/playlist?list=PLeo1K3hjS3ut49PskOfLnE6WUoOp_2lsD&si=LjLFCI1xtG_0eLNF)
