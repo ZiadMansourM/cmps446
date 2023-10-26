@@ -59,6 +59,21 @@ Late Blight predected Healthy | Late Blight predected Healthy
 [2023-10-26 11:12:11] Train size: 54, Validation size: 6, Test size: 8
 ```
 
+## Important Concepts
+
+### Data Augmentation
+- Data augmentation is a technique to artificially create new training data from existing training data.
+
+<!-- 000.jpeg        001.png         002.png         003.png -->
+
+![](/assets/datasets/potato/data-augmentation/000.jpeg)
+
+![](/assets/datasets/potato/data-augmentation/001.png)
+
+![](/assets/datasets/potato/data-augmentation/002.png)
+
+![](/assets/datasets/potato/data-augmentation/003.png)
+
 ## Code
 ### Import and Magic Numbers
 ```python
