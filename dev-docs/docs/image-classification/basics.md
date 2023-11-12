@@ -115,6 +115,15 @@ From the Confusion Matrix, various metrics can be calculated to evaluate the per
 
 By analyzing the Confusion Matrix, one can gain insight into not only the performance of the model but also which classes are being confused with each other, which can inform further refinement of the classifier. It's an indispensable part of model evaluation in supervised learning tasks.
 
+### Epochs
+The `EPOCHS` value is a critical hyperparameter in training neural networks, as it directly impacts the model's ability to learn from the training data.
+
+- When training a model, one epoch consists of one complete cycle of passing all the training data through the neural network and then running a backpropagation algorithm to update the weights. This process is aimed at minimizing the loss function, which measures the difference between the model's predictions and the actual values.
+- The EPOCHS: Final[int] = 4 line sets the number of epochs as a constant to the value of 4, indicating that the dataset will be used in four complete cycles of forward and backward passes during the training process.
+- The use of the Final type hint from the typing module suggests that the value of EPOCHS is intended to remain unchanged throughout the program, making it a constant. This is often done to avoid magic numbers in the code and to provide clear, configurable parameters at the top of the script.
+- In practical terms, setting the number of epochs is a balancing act. Too few epochs might result in an underfit model that does not learn enough from the data, while too many epochs can lead to overfitting, where the model learns the training data too well, including its noise and outliers, which can negatively affect performance on unseen data.
+
+
 ## REFERENCES
 - [Image Classification Basics.](https://pyimagesearch.com/2021/04/17/image-classification-basics/)
 - [Deep Learning Book.](https://www.deeplearningbook.org/)

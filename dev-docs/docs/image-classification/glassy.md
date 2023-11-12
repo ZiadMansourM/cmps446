@@ -820,10 +820,13 @@ import tensorflow as tf
 
 import utils
 ```
+This block imports necessary Python modules and TensorFlow, which is the core library for creating and training neural networks. The utils module is likely a custom utility library for logging and other functions.
 
 ```python
 EPOCHS: Final[int] = 4
 ```
+
+`EPOCHS` in the context of the provided code refers to a constant value that defines the number of times the entire training dataset is passed forward and backward through the neural network. The term is a key concept in the training of machine learning models, especially neural networks.
 
 
 ### Load model
@@ -857,6 +860,7 @@ minst = tf.keras.datasets.mnist
     "mnist.npz"
 ))
 ```
+This snippet loads the MNIST dataset, which contains images of handwritten digits and their corresponding labels, separating it into training and test sets.
 
 ```python
 assert x_train.shape == (60_000, 28, 28)
@@ -871,6 +875,7 @@ assert x_test.dtype == "uint8"
 assert y_test.shape == (10_000,)
 assert y_test.dtype == "uint8"
 ```
+The `assert` statements validate the dimensions and data types of the training and test datasets, ensuring data integrity before moving on to training.
 
 ### Training Model
 
@@ -878,11 +883,14 @@ assert y_test.dtype == "uint8"
 x_train = tf.keras.utils.normalize(x_train, axis=1)
 x_test = tf.keras.utils.normalize(x_test, axis=1)
 ```
+These lines normalize the image data within the range 0-1, which can lead to improved training efficiency and model convergence. See [What is Feature Scaling & Why is it Important in Machine Learning?](https://towardsdatascience.com/what-is-feature-scaling-why-is-it-important-in-machine-learning-2854ae877048#:~:text=Feature%20scaling%20is%20the%20process,need%20to%20perform%20feature%20scaling.) or [All about Feature Scaling.](https://towardsdatascience.com/all-about-feature-scaling-bcc0ad75cb35)
 
 ```python
 assert x_train.dtype == "float64"
 assert x_test.dtype == "float64"
 ```
+Post-normalization, these assertions confirm that the data types of the training and test inputs are now floating-point numbers.
+
 
 ```python
 model = tf.keras.models.Sequential()
@@ -897,10 +905,13 @@ model.compile(
     metrics=['accuracy']
 )
 ```
+The above code segment sets up the neural network architecture. It uses a sequential model with flattened input and dense layers with ReLU activations, culminating in a softmax layer for classification. The model is compiled with the Adam optimizer and sparse categorical crossentropy loss function, focusing on accuracy as the performance metric.
+
 
 ```python
 model.fit(x_train, y_train, epochs=EPOCHS)
 ```
+The model is trained on the preprocessed training data for the number of epochs specified earlier.
 
 ```python
 model.summary()
@@ -925,6 +936,7 @@ Trainable params: 118282 (462.04 KB)
 Non-trainable params: 0 (0.00 Byte)
 _________________________________________________________________
 ```
+A summary of the model's architecture is printed, showing the layers and parameters.
 
 ```python
 val_loss, val_acc = model.evaluate(x_test, y_test)
