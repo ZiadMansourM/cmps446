@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 id: Mr. Glassy the Bot
 description: NN for Handwritten digit recognition.
 slug: /image-classification/glassy
@@ -10,6 +10,10 @@ import CustomImagesTable from "../../src/components/CustomImagesTable";
 
 ![mr-glassy](/assets/datasets/minst/glassy.png)
 
+## Prerequisites
+This projects assumes that you covered the following concepts beforehand:
+- [X] [What does Image Classification mean?](https://pyimagesearch.com/2021/04/17/image-classification-basics/)
+- [X] [What are Neural Networks?](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ZR2rxvVOAf8aW3A1)
 
 ## MNIST digits dataset
 This is a [dataset](https://keras.io/api/datasets/mnist/) of 60,000 28x28 grayscale images of the 10 digits, along with a test set of 10,000 images. More info can be found at the [MNIST homepage](http://yann.lecun.com/exdb/mnist/).

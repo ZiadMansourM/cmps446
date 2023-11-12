@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 id: Dr. Crispy the Potato
 description: CNN to detect Stages of Blight Potatoes disease.
 slug: /image-classification/crispy
