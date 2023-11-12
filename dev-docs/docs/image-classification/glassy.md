@@ -11,15 +11,32 @@ import CustomImagesTable from "../../src/components/CustomImagesTable";
 ![mr-glassy](/assets/datasets/minst/glassy.png)
 
 ## Prerequisites
-This projects assumes that you covered the following concepts beforehand:
-- [X] [What does Image Classification mean?](https://pyimagesearch.com/2021/04/17/image-classification-basics/)
+This is a practical project that assumes you have already covered the following concepts:
+- [X] [Image Classification Basics.](https://cmps446.sreboy.com/image-classification/basics/)
 - [X] [What are Neural Networks?](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ZR2rxvVOAf8aW3A1)
+
+## Introduction
+Welcome to our practical exploration into the world of neural networks and image classification. In this project, we'll tackle the challenge of the `MNIST dataset`, which is a large collection of handwritten digits widely used for training and testing in the field of machine learning.
+
+The MNIST dataset presents a problem that is seemingly simple yet deceptively complex: recognizing and classifying handwritten digits from 0 to 9. Despite the simplicity of the task for humans, teaching a machine to accurately identify these digits involves understanding the nuances of individual handwriting styles and the inherent variability in how numbers are drawn.
+
+Our journey will involve constructing and training a neural network—a form of artificial intelligence that draws inspiration from the human brain's structure and function. This network will learn from thousands of samples what distinguishes, for instance, a hastily scribbled '3' from a looped '8'.
+
+Through this project, you'll gain hands-on experience with:
+
+- Preprocessing images to prepare them for use in a neural network.
+- Architecting a neural network capable of image recognition.
+- Fine-tuning a model's parameters to improve its accuracy.
+- Utilizing a Confusion Matrix to evaluate our model's performance.
+
+By the end of this, you'll not only have built a neural network model from scratch but also developed a deeper understanding of how machine learning algorithms can be applied to solve real-world problems in image recognition. Let's embark on this computational adventure and unlock the potential of neural networks together.
 
 ## MNIST digits dataset
 This is a [dataset](https://keras.io/api/datasets/mnist/) of 60,000 28x28 grayscale images of the 10 digits, along with a test set of 10,000 images. More info can be found at the [MNIST homepage](http://yann.lecun.com/exdb/mnist/).
 
 
 ## Workspace
+
 ```bash
 ziadh@Ziads-MacBook-Air mnist % tree -L 4 -I ".git|.venv|.DS_Store|__pycache__"
 .
@@ -77,8 +94,29 @@ ziadh@Ziads-MacBook-Air mnist % tree -L 4 -I ".git|.venv|.DS_Store|__pycache__"
 31 directories, 19 files
 ```
 
+In the workspace for our MNIST Handwritten Digits Classification project, we have organized the files and directories to maintain a structured and clean environment, facilitating the development and testing process. Here's an overview of each directory and its purpose:
+
+- `data`: The central hub for all data-related files.
+
+  - `confusion-matrices`: Contains subdirectories for each model iteration, with train and test folders to hold the confusion matrices generated during training and testing phases, allowing us to evaluate model performance.
+  - `datasets`: Stores the MNIST dataset file mnist.npz, which includes the training and test sets used for model training and evaluation.
+  - `models`: Organized by model iteration (e.g., 3, 4, 20), this directory contains saved models with their respective accuracy in the filename, indicating the model's performance on the test set.
+  - `test`: Here you'll find custom test images, such as those created in Paint, that are used to manually test the model's predictions outside of the standard MNIST dataset.
+  - `logs`: Contains log files like tune.log, which records the output from model tuning and hyperparameter optimization processes, providing insights into the training progress and performance.
+
+- `src`: The source directory where the main codebase resides.
+
+  - `main.ipynb`: The Jupyter notebook that likely serves as the primary point of entry for the project, including data exploration, model definition, training, and testing.
+  - `requirements.txt`: A file listing all the Python dependencies required to run the project, ensuring consistent setup across different environments.
+  - `train.ipynb`: A Jupyter notebook dedicated to the training process, including data preprocessing, model architecture setup, training loops, and saving the model.
+  - `utils`: A package containing utility functions and classes, such as utils.py which might define common functionality used across the project, like data loading or transformation functions.
+
+Each directory and file is carefully crafted to serve a specific role in the project's lifecycle, from data preparation to model training, evaluation, and application. The structure ensures that the project is easy to navigate and understand, making the development process more efficient and robust.
+
 
 ## Visualize Training Dataset
+This bash script enumerates through each subdirectory within the `temp/train` directory located in the current working directory where the script is executed. For each subdirectory (which appears to represent a class label in the MNIST dataset), it counts and prints the number of images in that directory.
+
 ```bash
 ziadh@Ziads-MacBook-Air mnist % \
 for dir in "$(pwd)/temp/train"/*; do
@@ -86,6 +124,8 @@ for dir in "$(pwd)/temp/train"/*; do
     count=$(find "$dir" -type f -name "*.png" | wc -l)
     echo "\"$label\": $count"
 done
+```
+```
 "0":     5923
 "1":     6742
 "2":     5958
@@ -98,7 +138,19 @@ done
 "9":     5949
 ```
 
+### Zeros
+The First class label is `0`, which has 5,923 images. Here are the first 32 images in this class:
+
+<ImagesTable
+  size={112}
+  heading={"Zeros Images"}
+  dirname={"train"}
+  classdigit={"0"}
+/>
+
 ### Ones
+The Second class label is `1`, which has 6,742 images. Here are the first 32 images in this class:
+
 <ImagesTable
   size={112}
   heading={"Ones Images"}
@@ -107,6 +159,7 @@ done
 />
 
 ### Twos
+The Third class label is `2`, which has 5,958 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Twos Images"}
@@ -115,6 +168,7 @@ done
 />
 
 ### Threes
+The Fourth class label is `3`, which has 6,131 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Threes Images"}
@@ -123,6 +177,7 @@ done
 />
 
 ### Fours
+The Fifth class label is `4`, which has 5,842 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Fours Images"}
@@ -131,6 +186,7 @@ done
 />
 
 ### Fives
+The Sixth class label is `5`, which has 5,421 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Fives Images"}
@@ -139,6 +195,7 @@ done
 />
 
 ### Sixes
+The Seventh class label is `6`, which has 5,918 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Sixes Images"}
@@ -147,6 +204,7 @@ done
 />
 
 ### Sevens
+The Eighth class label is `7`, which has 6,265 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Sevens Images"}
@@ -155,6 +213,7 @@ done
 />
 
 ### Eights
+The Ninth class label is `8`, which has 5,851 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Eights Images"}
@@ -163,6 +222,7 @@ done
 />
 
 ### Nines 
+The Tenth class label is `9`, which has 5,949 images. Here are the first 32 images in this class:
 <ImagesTable
   size={112}
   heading={"Nines Images"}
@@ -172,6 +232,8 @@ done
 
 
 ## Visualize Test Dataset
+This bash script enumerates through each subdirectory within the `temp/test` directory located in the current working directory where the script is executed. For each subdirectory (which appears to represent a class label in the MNIST dataset), it counts and prints the number of images in that directory.
+
 ```bash
 ziadh@Ziads-MacBook-Air mnist % \
 > for dir in "$(pwd)/temp/test"/*; do
@@ -179,6 +241,8 @@ ziadh@Ziads-MacBook-Air mnist % \
     count=$(find "$dir" -type f -name "*.png" | wc -l)
     echo "\"$label\": $count"
 done
+```
+```
 "0":      980
 "1":     1135
 "2":     1032
@@ -191,8 +255,18 @@ done
 "9":     1009
 ```
 
+### Zeros
+The First class label is `0`, which has 980 images. Here are the first 32 images in this class:
+
+<ImagesTable
+  size={112}
+  heading={"Zeros Images"}
+  dirname={"test"}
+  classdigit={"0"}
+/>
 
 ### Ones
+The Second class label is `1`, which has 1,135 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -202,6 +276,7 @@ done
 />
 
 ### Twos
+The Third class label is `2`, which has 1,032 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -211,6 +286,7 @@ done
 />
 
 ### Threes
+The Fourth class label is `3`, which has 1,010 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -220,6 +296,7 @@ done
 />
 
 ### Fours
+The Fifth class label is `4`, which has 982 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -229,6 +306,7 @@ done
 />
 
 ### Fives
+The Sixth class label is `5`, which has 892 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -238,6 +316,7 @@ done
 />
 
 ### Sixes
+The Seventh class label is `6`, which has 958 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -247,6 +326,7 @@ done
 />
 
 ### Sevens
+The Eighth class label is `7`, which has 1,028 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -256,6 +336,7 @@ done
 />
 
 ### Eights
+The Ninth class label is `8`, which has 974 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -265,6 +346,7 @@ done
 />
 
 ### Nines
+The Tenth class label is `9`, which has 1,009 images. Here are the first 32 images in this class:
 
 <ImagesTable
   size={112}
@@ -275,8 +357,15 @@ done
 
 
 ## Visualize Wrong Predictions
+As you will see later in the [logs](#logs):
+```.log
+[2023-10-25 12:26:50] False predictions: 283/10,000
+[2023-10-25 12:26:50] True predictions: 9,717/10,000
+```
+We had 283 wrong predictions, so let's visualize them. Each class will have its own table. And above each image will be what our model predected.
 
 ### Zeros
+> Example: First image is a `0` but our model predected it as a `9`.
 
 <CustomImagesTable
   size={112}
@@ -301,6 +390,7 @@ done
 
 
 ### Ones
+> Example: First image is a `1` but our model predected it as a `8`.
 
 <CustomImagesTable
   size={112}
@@ -323,6 +413,7 @@ done
 />
 
 ### Twos
+> Example: First image is a `2` but our model predected it as a `7`.
 
 <CustomImagesTable
   size={112}
@@ -376,6 +467,7 @@ done
 
 
 ### Threes
+> Example: First image is a `3` but our model predected it as a `8`.
 
 <CustomImagesTable
   size={112}
@@ -416,6 +508,7 @@ done
 
 
 ### Fours
+> Example: First image is a `4` but our model predected it as a `2`.
 
 <CustomImagesTable
   size={112}
@@ -451,6 +544,7 @@ done
 
 
 ### Fives
+> Example: First image is a `5` but our model predected it as a `3`.
 
 <CustomImagesTable
   size={112}
@@ -497,6 +591,7 @@ done
 
 
 ### Sixs
+> Example: First image is a `6` but our model predected it as a `0`.
 
 <CustomImagesTable
   size={112}
@@ -526,6 +621,7 @@ done
 
 
 ### Sevens
+> Example: First image is a `7` but our model predected it as a `3`.
 
 <CustomImagesTable
   size={112}
@@ -569,8 +665,8 @@ done
 />
 
 
-
 ### Eights
+> Example: First image is a `8` but our model predected it as a `0`.
 
 <CustomImagesTable
   size={112}
@@ -632,8 +728,8 @@ done
 />
 
 
-
 ### Nines
+> Example: First image is a `9` but our model predected it as a `5`.
 
 <CustomImagesTable
   size={112}
@@ -690,7 +786,28 @@ done
 
 </div>
 
+The above confusion matrix provides detailed insight into the model's performance across the ten classes (digits 0 through 9) that the dataset comprises.
+
+Here's a breakdown of how to interpret the matrix:
+
+- The x-axis (horizontal axis) represents the predicted labels that the model has output.
+- The y-axis (vertical axis) represents the true labels or the actual classifications of the data.
+- Each cell in the matrix represents the count of instances for the actual label (y-axis) that was predicted as a certain label (x-axis).
+- The diagonal cells, which run from the top left to the bottom right, show the number of times the model correctly predicted each class. The darker shading and higher numbers along this diagonal indicate more correct predictions.
+- Off-diagonal cells indicate misclassifications. For instance, a non-zero value at the location (2, 3) would mean that the model mistakenly predicted some instances of the actual class '2' as class '3'.
+- The color intensity and the number in each cell correspond to the count of predictions. Darker or more intense colors represent higher counts. In this case, a gradient from light to dark shades is used, with light representing fewer instances and dark representing more.
+
+Looking at the matrix, we can make a few observations:
+
+- The model has high accuracy for most digits, as indicated by the high counts in the diagonal cells (e.g., 968 for '0', 1124 for '1', etc.).
+- Some misclassifications are evident for nearly every digit but are relatively low in number compared to the correct predictions.
+- The model seems particularly accurate with digits such as '1' and '7', given the high count and the fact that there are fewer off-diagonal numbers in these rows and columns.
+
+In summary, this Confusion Matrix is a useful visualization to evaluate the model's performance, indicating not only how often it is correct but also what types of errors it's making.
+
+
 ## Code
+In this section we will go through the code used to train the model.
 
 ### Imports && Magic Numbers
 

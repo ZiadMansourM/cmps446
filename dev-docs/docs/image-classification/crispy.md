@@ -7,6 +7,11 @@ slug: /image-classification/crispy
 
 ![dr-crispy](/assets/datasets/potato/doctor-potato.jpeg)
 
+## Prerequisites
+This is a practical project that assumes you have already covered the following concepts:
+- [X] [Image Classification Basics.](https://cmps446.sreboy.com/image-classification/basics/)
+- [X] [What are Neural Networks?](https://youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi&si=ZR2rxvVOAf8aW3A1)
+
 ## Visualize Dataset
 ```bash
 for dir in "$(pwd)"/*; do                      
