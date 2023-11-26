@@ -17,7 +17,7 @@ The Hough Transform is a feature extraction technique used in image analysis, co
 In the next video we have a 5*5 image with an edge at the diagonal. We will see how the Hough Transform works for this image. In both `Cartesian` and `Polar` Coordinates.
 
 <div style={{ display: 'flex', justifyContent: 'center' }}>
-    <iframe width="560" height="315" src="https://youtu.be/eiS5IAFu5-s?si=R77ZbiAS0vR1IpRO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/eiS5IAFu5-s?si=Y4uLc9WYZWnYwy4y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 ### Cartesian Coordinates
